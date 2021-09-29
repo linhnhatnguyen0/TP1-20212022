@@ -6,6 +6,9 @@ var currentScrollPos = window.pageYOffset;
   } else {
     document.getElementById("header").style.top = "-100px";
   }
+  if(window.pageYOffset==0){
+    document.getElementById("header").style.top = "30px";
+  }
   prevScrollpos = currentScrollPos;
 }
 
@@ -30,3 +33,42 @@ $(window).on("load",function() {
       }).scroll();
            
   });
+
+
+let width = $(window).width();
+$(document).ready(function (){
+  if (width<1001)
+  {
+    $(header).css("width", "20%");
+    $(header).css("height", "40px");
+    $(header).on("click", function(){
+      $(".dropdown").addClass('get-down');
+      if($(".get-down").css("height")=="0px"){
+        $(".get-down").animate({
+          height:"250px"
+        },300)
+      }
+      if($(".get-down").css("height")=="250px"){
+        $(".get-down").animate({
+          height:"0px"
+        },300)
+      }
+      if($("#nav").css("opacity")==0){
+        $("#nav").fadeTo(100, 1);
+      }
+      if($("#nav").css("opacity")==1){
+        $("#nav").fadeTo(100, 0);
+      }
+    $(window).scroll(function(){
+      if($(".get-down").css("height")=="250px"){
+        $(".get-down").animate({
+          height:"0px"
+        })
+      }
+      if($("#nav").css("opacity")==1){
+        $("#nav").fadeTo(100, 0);
+      }
+    })  
+    });
+  }
+})

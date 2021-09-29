@@ -5,6 +5,9 @@
   margin: 0;
   padding: 0;
 }
+.fa-bars{
+  display: none;
+}
 p,
 h1,
 h2,
@@ -45,15 +48,14 @@ nav {
   display: flex;
   align-items: center;
 }
-nav li {
-  font-family: "Alumni Sans", sans-serif;
-  list-style-type: none;
-  margin: 20px;
-}
+
 nav a {
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 1.4rem;
+  font-family: "Alumni Sans", sans-serif;
+  list-style-type: none;
+  margin: 20px;
 }
 main {
   width: 100%;
@@ -88,7 +90,7 @@ main {
   box-shadow: 0 0 20px 0 #fff;
   margin-bottom: 30px;
 }
-figcaption {
+figure {
   font-family: "Montserrat";
   color: rgb(51, 0, 99);
   background: linear-gradient(
@@ -297,7 +299,7 @@ h1 {
   width: 100%;
 }
 .css {
-  transform: scale(80%);
+  transform: scale(0.75);
 }
 .adresse {
   margin-top: 100px;
@@ -380,9 +382,12 @@ footer span {
 .form textarea {
   font-family: "Montserrat";
   resize: none;
-  border-radius: 0;
+  border-radius: 1rem;
   padding: 10px;
   margin-bottom: 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
 }
 textarea:focus {
   outline: 0;
@@ -441,9 +446,31 @@ textarea:focus {
   }
 }
 @media screen and (max-width: 1001px) {
-  nav {
-    flex-direction: column;
+  .fa-bars{
+    display: block;
+    color: #fff;
+    position: absolute;
   }
+  .dropdown{
+    height: 0px;
+  }
+  .get-down{
+    top: 50px;
+    position: absolute;
+    background-color: #5f28b5;
+    width: 250px;
+    height: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  #nav{
+    flex-direction: column;
+    opacity: 0;
+  }
+
   .home-container,
   .langue,
   .propos,
